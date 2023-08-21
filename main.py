@@ -39,3 +39,30 @@ def show_main_menu(username):
 
     # Create and place widgets for the main menu
     Label(main_menu, text=f"Welcome, {username}!").pack()
+  
+# Create and place widgets for the main menu
+    Label(main_menu, text=f"Welcome, {username}!").pack()
+
+    # Add more widgets for the main menu options
+
+    # Start the main menu loop
+    main_menu.mainloop()
+
+# Create the main window
+root = Tk()
+root.title("Login Form")
+
+# Create and place widgets for the login window
+Label(root, text="Username:").pack()
+username_entry = Entry(root)
+username_entry.pack()
+
+Label(root, text="Password:").pack()
+password_entry = Entry(root, show="*")
+password_entry.pack()
+
+login_button = Button(root, text="Login", command=login)
+login_button.pack()
+
+result_label = Label(root, text="")
+result_label.pack()
