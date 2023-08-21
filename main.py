@@ -66,3 +66,22 @@ login_button.pack()
 
 result_label = Label(root, text="")
 result_label.pack()
+# Start the main loop for the login window
+root.mainloop()
+show_main_menu("User 2")
+    else:
+        attempts += 1
+        remaining_attempts = MAX_ATTEMPTS - attempts
+        if remaining_attempts > 0:
+            result_label.config(text=f"Login failed. {remaining_attempts} attempts remaining.")
+        else:
+            result_label.config(text="Login failed. No more attempts allowed.")
+            username_entry.config(state=DISABLED)
+            password_entry.config(state=DISABLED)
+            login_button.config(state=DISABLED)
+
+def show_main_menu(username):
+    root.destroy()  # Close the login window
+
+    main_menu = Tk()
+    main_menu.title(f"Welcome, {username}")
