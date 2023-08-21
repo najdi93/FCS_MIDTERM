@@ -21,3 +21,21 @@ def login():
         show_main_menu("User 1")
     elif username == "user2" and password == "pass2":
         show_main_menu("User 2")
+    else:
+        attempts += 1
+        remaining_attempts = MAX_ATTEMPTS - attempts
+        if remaining_attempts > 0:
+            result_label.config(text=f"Login failed. {remaining_attempts} attempts remaining.")
+        else:
+            result_label.config(text="Login failed. No more attempts allowed.")
+            username_entry.config(state=DISABLED)
+            password_entry.config(state=DISABLED)
+            login_button.config(state=DISABLED)
+def show_main_menu(username):
+    root.destroy()  # Close the login window
+
+    main_menu = Tk()
+    main_menu.title(f"Welcome, {username}")
+
+    # Create and place widgets for the main menu
+    Label(main_menu, text=f"Welcome, {username}!").pack()
