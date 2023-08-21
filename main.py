@@ -16,3 +16,8 @@ def login():
     global attempts
     username = username_entry.get()
     password = password_entry.get()
+  # Check the username and password
+    if username == "user1" and password == "pass1":
+        show_main_menu("User 1")
+    elif username == "user2" and password == "pass2":
+        show_main_menu("User 2")
